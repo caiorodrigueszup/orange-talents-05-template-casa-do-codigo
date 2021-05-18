@@ -3,7 +3,6 @@ package br.com.zupacademy.caio.casadocodigo.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +20,9 @@ public class AutorController {
 	private AutorRepository autorRepository;
 	
 	@PostMapping
-	public ResponseEntity<?> criarAutor(@Valid @RequestBody AutorDTO autorDTO) {
+	public String criarAutor(@Valid @RequestBody AutorDTO autorDTO) {
 		Autor autor = autorDTO.converter();
 		autorRepository.save(autor);
-		return ResponseEntity.ok().build();
+		return autor.toString();
 	}
 }

@@ -2,35 +2,30 @@ package br.com.zupacademy.caio.casadocodigo.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.zupacademy.caio.casadocodigo.entity.Autor;
 
 public class AutorDTO {
-	@NotNull @NotNull @NotBlank @Size(min = 3, max = 30)
+	@NotBlank @Size(min = 3, max = 30)
 	private String nome;
 	
-	@NotNull @NotEmpty @Email
+	@NotBlank @Email
 	private String email;
 	
-	@NotNull @NotEmpty @Size(max = 400)
+	@NotBlank @Size(max = 400)
 	private String descricao;
 	
-	public String getNome() {
-		return nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
 	
+	
+	public AutorDTO(@NotBlank @Size(min = 3, max = 30) String nome, @NotBlank @Email String email,
+			@NotBlank @Size(max = 400) String descricao) {
+		this.nome = nome;
+		this.email = email;
+		this.descricao = descricao;
+	}
+
 	public Autor converter() {
-		return new Autor(nome, email, descricao);
+		return new Autor(this.nome, this.email, this.descricao);
 	}
 }
