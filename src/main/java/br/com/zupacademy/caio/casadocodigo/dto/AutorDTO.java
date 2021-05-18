@@ -16,13 +16,15 @@ public class AutorDTO {
 	@NotBlank @Size(max = 400)
 	private String descricao;
 	
-	
-	
 	public AutorDTO(@NotBlank @Size(min = 3, max = 30) String nome, @NotBlank @Email String email,
 			@NotBlank @Size(max = 400) String descricao) {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 
 	public Autor converter() {
