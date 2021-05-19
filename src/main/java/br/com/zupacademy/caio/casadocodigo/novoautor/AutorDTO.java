@@ -1,10 +1,8 @@
-package br.com.zupacademy.caio.casadocodigo.dto;
+package br.com.zupacademy.caio.casadocodigo.novoautor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
-import br.com.zupacademy.caio.casadocodigo.entity.Autor;
 
 public class AutorDTO {
 	@NotBlank @Size(min = 3, max = 30)
