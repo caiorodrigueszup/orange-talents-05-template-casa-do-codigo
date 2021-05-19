@@ -4,11 +4,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zupacademy.caio.casadocodigo.compartilhado.UniqueValue;
+
 public class AutorDTO {
 	@NotBlank @Size(min = 3, max = 30)
 	private String nome;
 	
 	@NotBlank @Email
+	@UniqueValue(fieldName = "email", domainClass = Autor.class)
 	private String email;
 	
 	@NotBlank @Size(max = 400)
