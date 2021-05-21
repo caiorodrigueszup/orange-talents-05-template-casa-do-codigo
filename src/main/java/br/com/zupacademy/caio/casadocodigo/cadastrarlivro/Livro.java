@@ -23,7 +23,7 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
 	private String titulo;
 
@@ -57,11 +57,11 @@ public class Livro {
 	@NotNull
 	@ManyToOne
 	private Autor autor;
-	
+
 	@Deprecated
-	public Livro() {}
-	
-	
+	public Livro() {
+	}
+
 	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numPaginas, @NotBlank String isbn,
 			@NotNull @Future LocalDate dataPublicacao, @NotNull Categoria categoria, @NotNull Autor autor) {
@@ -75,13 +75,45 @@ public class Livro {
 		this.categoria = categoria;
 		this.autor = autor;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getTitulo() {
 		return titulo;
+	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public Integer getNumPaginas() {
+		return numPaginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public LocalDate getDataPublicacao() {
+		return dataPublicacao;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public Autor getAutor() {
+		return autor;
 	}
 
 	@Override

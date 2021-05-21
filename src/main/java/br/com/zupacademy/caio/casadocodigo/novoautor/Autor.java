@@ -31,7 +31,7 @@ public class Autor {
 	private String descricao;
 
 	private LocalDateTime dataCriacao = LocalDateTime.now();
-	
+
 	@Deprecated
 	public Autor() {
 	}
@@ -42,11 +42,22 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao + ", dataCriacao="
 				+ dataCriacao + "]";
 	}
 
-	
 }
