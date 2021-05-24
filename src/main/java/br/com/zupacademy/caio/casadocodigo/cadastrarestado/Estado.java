@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -21,6 +22,7 @@ public class Estado {
 	private String nome;
 
 	@NotNull
+	@Valid
 	@ManyToOne
 	private Pais pais;
 
@@ -28,37 +30,21 @@ public class Estado {
 	public Estado() {
 	}
 
-	public Estado(@NotBlank String nome, @NotNull Pais pais) {
+	public Estado(@NotBlank String nome, @NotNull @Valid Pais pais) {
 		this.nome = nome;
-		this.pais = pais;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 
 	@Override
 	public String toString() {
 		return "Estado [id=" + id + ", nome=" + nome + ", pais=" + pais + "]";
+	}
+	
+	public Boolean existeEstadoParaEstePais(Pais pais) {
+		if (pais.getId() == this.pais.getId()) {
+			return true;
+		}
+		
+		return false;
 	}
 }

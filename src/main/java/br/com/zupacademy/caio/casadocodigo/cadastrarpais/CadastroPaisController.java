@@ -23,6 +23,6 @@ public class CadastroPaisController {
 		
 		manager.persist(pais);
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok(request.toString());
 	}
 }
